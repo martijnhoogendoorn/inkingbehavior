@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="Dev.MartijnHoogendoorn.Inking.Behavior.Sample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:b="using:Dev.MartijnHoogendoorn.Inking.Behavior.Behaviors"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:Dev.MartijnHoogendoorn.Inking.Behavior.Sample.Converters"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <c:UriToRandomAccessStreamReferenceConverter x:Key="uriToRandomAccessStreamReferenceConverter" />
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <CheckBox x:Name="testbox" IsChecked="True" />
+            <TextBox x:Name="sharetitle" Text="Awesome ink to share" />
+            <TextBox x:Name="logoUri" Width="80" Text="http://www.eurorelais.nl/sites/all/themes/eurorelais2//images/ssl_logo.png" />
+            <Button Content="Save">
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:InvokeCommandAction Command="{Binding ElementName=ib, Path=SaveCommand}" CommandParameter="{Binding ElementName=excludedPanel}" />
+                    </core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </Button>
+            <Button Content="Share">
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:InvokeCommandAction Command="{Binding ElementName=ib, Path=ShareCommand}" CommandParameter="{Binding ElementName=excludedPanel}" />
+                    </core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <i:Interaction.Behaviors>
+                <b:InkingBehavior 
+                    x:Name="ib" 
+                    IsEnabled="{Binding IsChecked, ElementName=testbox, Mode=TwoWay}" 
+                    IsPenEnabled="False"
+                    IsMarkerEnabled="True"
+                    IsEraserEnabled="False"
+                    IsAnnotationsEnabled="False"
+                    MarkerSize="40, 40" 
+                    MarkerColor="DarkMagenta" 
+                    PenSize="20,20" 
+                    PenColor="ForestGreen" 
+                    SelectedTool="Marker"
+                    SharedInkTitle="{Binding Text, ElementName=sharetitle}"
+                    SharedInkDescription="This is a cool description"
+                    SharedInkDeeplink="http://www.google.com/"
+                    SharedInkUri="http://www.microsoft.com/"
+                    SharedInk30x30Logo="{Binding Text,ElementName=logoUri, Converter={StaticResource uriToRandomAccessStreamReferenceConverter}}"
+                    ToolbarHorizontalAlignment="Right" 
+                    ToolbarVerticalAlignment="Bottom" />
+            </i:Interaction.Behaviors>
+            <StackPanel x:Name="excludedPanel">
+                <TextBlock Text="123" />
+            </StackPanel>
+            <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="http://7-themes.com/data_images/out/52/6947389-cool-smiley-faces.jpg" />
+        </Grid>
+    </Grid>
+</Page>
