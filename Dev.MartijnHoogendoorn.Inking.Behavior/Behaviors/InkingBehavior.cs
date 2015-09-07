@@ -34,7 +34,7 @@ namespace Dev.MartijnHoogendoorn.Inking.Behavior.Behaviors
     public class InkingBehavior : DependencyObject, IBehavior, INotifyPropertyChanged, IDisposable
     {
         private InkCanvas _inkCanvas;
-        private InkToolbar _inkToolbar;
+        private InkToolbarControl _inkToolbar;
         private Canvas _annotationCanvas;
         private bool _initialized = false;
         private DataTransferManager _dataTransferManager;
@@ -156,7 +156,7 @@ namespace Dev.MartijnHoogendoorn.Inking.Behavior.Behaviors
             if (!_initialized)
             {
                 _inkCanvas = new InkCanvas();
-                _inkToolbar = new InkToolbar(this);
+                _inkToolbar = new InkToolbarControl(this);
 
                 InkDrawingAttributes drawingAttributes = new InkDrawingAttributes
                 {
@@ -627,7 +627,7 @@ namespace Dev.MartijnHoogendoorn.Inking.Behavior.Behaviors
 
         // Using a DependencyProperty as the backing store for PenColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PenColorProperty =
-            DependencyProperty.Register("PenColor", typeof(Color), typeof(InkToolbar), new PropertyMetadata(null, new PropertyChangedCallback(PenColor_Changed)));
+            DependencyProperty.Register("PenColor", typeof(Color), typeof(InkToolbarControl), new PropertyMetadata(null, new PropertyChangedCallback(PenColor_Changed)));
 
         static void PenColor_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -646,7 +646,7 @@ namespace Dev.MartijnHoogendoorn.Inking.Behavior.Behaviors
 
         // Using a DependencyProperty as the backing store for PenSize.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PenSizeProperty =
-            DependencyProperty.Register("PenSize", typeof(Size), typeof(InkToolbar), new PropertyMetadata(null, new PropertyChangedCallback(PenSize_Changed)));
+            DependencyProperty.Register("PenSize", typeof(Size), typeof(InkToolbarControl), new PropertyMetadata(null, new PropertyChangedCallback(PenSize_Changed)));
 
         static void PenSize_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -665,7 +665,7 @@ namespace Dev.MartijnHoogendoorn.Inking.Behavior.Behaviors
 
         // Using a DependencyProperty as the backing store for MarkerColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MarkerColorProperty =
-            DependencyProperty.Register("MarkerColor", typeof(Color), typeof(InkToolbar), new PropertyMetadata(null, new PropertyChangedCallback(MarkerColor_Changed)));
+            DependencyProperty.Register("MarkerColor", typeof(Color), typeof(InkToolbarControl), new PropertyMetadata(null, new PropertyChangedCallback(MarkerColor_Changed)));
 
         static void MarkerColor_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -684,7 +684,7 @@ namespace Dev.MartijnHoogendoorn.Inking.Behavior.Behaviors
 
         // Using a DependencyProperty as the backing store for PenSize.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MarkerSizeProperty =
-            DependencyProperty.Register("MarkerSize", typeof(Size), typeof(InkToolbar), new PropertyMetadata(null, new PropertyChangedCallback(MarkerSize_Changed)));
+            DependencyProperty.Register("MarkerSize", typeof(Size), typeof(InkToolbarControl), new PropertyMetadata(null, new PropertyChangedCallback(MarkerSize_Changed)));
 
         static void MarkerSize_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

@@ -22,9 +22,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Dev.MartijnHoogendoorn.Inking.Behavior.Controls
 {
-    public sealed partial class InkToolbar : UserControl
+    public sealed partial class InkToolbarControl : UserControl
     {
-        public InkToolbar(InkingBehavior parent)
+        public InkToolbarControl(InkingBehavior parent)
         {
             this.InitializeComponent();
 

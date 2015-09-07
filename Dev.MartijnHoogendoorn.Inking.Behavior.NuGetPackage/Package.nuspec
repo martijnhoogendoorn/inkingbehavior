@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Dev.MartijnHoogendoorn.Inking.Behavior</id>
+    <version>1.0.5-alpha1</version>
+    <title>Dev.MartijnHoogendoorn.Inking.Behavior</title>
+    <authors>martijnh</authors>
+    <owners></owners>
+    <description>
+      A behavior implementing inking for UIElements deriving from Panel for Universal Windows applications (Windows 10). The behavior allows for inking, marking, annotating, as well as saving and sharing of the aforementioned. Use this control to easily start supporting your users drawing and taking notes to share with others on any surface using mouse, pen, or touch.
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <summary>
+      A behavior implementing inking for UIElements deriving from Panel for Universal Windows applications (Windows 10). The behavior allows for inking, marking, annotating, as well as saving and sharing of the aforementioned. Use this control to easily start supporting your users drawing and taking notes to share with others on any surface using mouse, pen, or touch.
+    </summary>
+    <language>en-US</language>
+    <projectUrl>https://nuget.org/packages/Dev.MartijnHoogendoorn.Inking.Behavior</projectUrl>
+    <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/martijnhoogendoorn/inkingbehavior/blob/master/LICENSE</licenseUrl>
+    <copyright>Copyright 2015 Martijn Hoogendoorn</copyright>
+    <dependencies />
+    <references></references>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="lib\" target="lib" />
+    <file src="tools\" target="tools" />
+    <file src="content\" target="content" />
+  </files>
+  </package>
